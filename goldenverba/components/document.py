@@ -14,6 +14,7 @@ SUPPORTED_LANGUAGES = {
     "fr": "French",
     "de": "German",
     "nl": "Dutch",
+    'ar':"English"
 }
 
 
@@ -32,7 +33,9 @@ def load_nlp_for_language(language: str):
     elif language == "nl":
         nlp = spacy.blank("nl")
     else:
-        raise ValueError(f"Unsupported language: {language}")
+        nlp = spacy.blank("en")
+    # else:
+    #     raise ValueError(f"Unsupported language: {language}")
 
     # Add sentence segmentation to languages
     if language == "en":
